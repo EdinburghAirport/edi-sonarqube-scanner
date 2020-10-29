@@ -20,6 +20,7 @@ RUN apk update \
 	&& unzip /tmp/sonar-scanner/sonar-scanner-cli-${SONARQUBE_SCANNER_CLI_VERSION}-linux.zip -d /opt  \
 	&& rm -rf /tmp/sonar-scanner
 
+RUN apk add --update nodejs npm
 
 ENV PATH $PATH:$SONARQUBE_SCANNER_BIN
 
