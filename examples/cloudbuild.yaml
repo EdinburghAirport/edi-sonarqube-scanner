@@ -1,0 +1,14 @@
+secrets:
+- kmsKeyName: projects/$PROJECT_ID/locations/europe-west1/keyRings/keyring_name/cryptoKeys/key_name
+  secretEnv:
+    SONARQUBE_TOKEN: Ci.......fGdp0ig==
+
+steps:
+  - name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
+    args:
+    - '-Dsonar.host.url=https://sonarcloud.io'
+    - '-Dsonar.login={SONARQUBE_TOKEN}'
+    - '-Dsonar.projectKey={specify}'
+    - '-Dsonar.organization={specify}'
+    - '-Dsonar.sources=.'
+tags: ['cloud-builders-community']
